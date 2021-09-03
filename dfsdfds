@@ -1,0 +1,54 @@
+// router.get('/all', async (req, res) => {
+// const blog = await BlogSchema.find().sort({ timeCreated: 'desc' });
+
+// try {
+// if (blogs) {
+// res.render('./home', { blog: blog })
+// } else {
+// res.status(400).send('There was a problem');
+// }
+// }
+// catch (err) {
+// res.status(400).send(err.message);
+// console.log(err.message);
+// }
+// })
+
+
+<!-- 
+<% title.forEach(t=>{%>
+
+       
+
+    <%})%> -->
+
+
+
+
+
+
+<!-- <% blogs.forEach(blog=>{ %>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
+        <div class="card">
+            <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <%= blog.title %>
+                </h2>
+                <p class="card-text">
+                    <%= blog.description %>
+                </p>
+                <p>
+                    AUTHOR:<%= blog.author %>
+                </p>
+                <p> <small class="text-muted">
+                        Created At: <%= blog.createdAt.toLocaleDateString() %>
+                    </small>
+                </p>
+                <a href="/blog/edit/<%=blog.id%>" class="btn btn-warning">Edit</a>
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-info">Read Blog</button>
+            </div>
+        </div>
+    </div>
+    <% }) %> -->

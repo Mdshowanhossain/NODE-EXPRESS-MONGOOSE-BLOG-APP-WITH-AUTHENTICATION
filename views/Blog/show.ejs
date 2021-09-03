@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP-START -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- BOOTSTRAP-END -->
+
+    <!-- FONTAWESOME-CDN-START -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <!-- FONTAWESOME-CDN-END -->
+
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Show-Blog</title>
+</head>
+
+<body>
+
+    <div class="container text-center">
+        <div>
+            <h3>A Node JS FullStack Blog Application</h3>
+        </div>
+        <div>
+            <span>LifeStyle</span> | <span>Fashion</span> | <span>Travel</span> | <span>Dream</span>
+        </div>
+    </div>
+
+    <div class="relative">
+        <a href="/blog/all" type="button" class="btn btn-success" href="/"><i class="fas fa-step-backward"></i>Back</a>
+    </div>
+
+    <div class="card mb-3 mt-5 text-center">
+        <img class=" img-fluid show-image" src="" alt="Card image cap">
+        <div class="card-body">
+            <h1 class="card-title">
+                <%= findBlog.title %>
+            </h1>
+            <p class="card-text">
+                <%= findBlog.description %>
+            </p>
+            <p class="card-text">
+                <small class="text-muted">
+                    AUTHOR:<%= findBlog.author %>
+                </small>
+            </p>
+            <p class="card-text">
+                <small class="text-muted">
+                    Created At: <%= findBlog.createdAt.toLocaleDateString() %>
+                </small>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

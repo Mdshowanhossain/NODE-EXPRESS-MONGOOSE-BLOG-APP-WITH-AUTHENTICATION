@@ -17,7 +17,7 @@
     <!-- FONTAWESOME CDN END -->
 
     <!-- CUSTOM CSS STYLES START -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../style.css">
     <!-- CUSTOM CSS STYLES END -->
 
     <title>Blog_Application</title>
@@ -25,7 +25,6 @@
 
 <body>
     <div class="bgImg bg-light">
-
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
             <div class="container">
                 <a href="" class="navbar-brand text-warning font-weight-bold">SOHAN</a>
@@ -102,78 +101,44 @@
     <!-- MY PROJECTS START -->
     <section class="projects bg-light">
         <div class="container text-center">
-            <h1>PROJECTS</h1>
+            <h1>BLOG</h1>
             <p>Lorem ipsum dolor, sit amet consectetur</p>
 
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
-                    <div class="card">
-                        <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
-                        <div class="card-body">
-                            <h2 class="card-title">SOHAN</h2>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-                                exercitationem, odio suscipit alias aperiam deleniti.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
-                    <div class="card">
-                        <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
-                        <div class="card-body">
-                            <h2 class="card-title">SOHAN</h2>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-                                exercitationem, odio suscipit alias aperiam deleniti.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
-                    <div class="card">
-                        <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
-                        <div class="card-body">
-                            <h2 class="card-title">SOHAN</h2>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-                                exercitationem, odio suscipit alias aperiam deleniti.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
-                    <div class="card">
-                        <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
-                        <div class="card-body">
-                            <h2 class="card-title">SOHAN</h2>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-                                exercitationem, odio suscipit alias aperiam deleniti.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
-                    <div class="card">
-                        <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
-                        <div class="card-body">
-                            <h2 class="card-title">SOHAN</h2>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-                                exercitationem, odio suscipit alias aperiam deleniti.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
-                    <div class="card">
-                        <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
-                        <div class="card-body">
-                            <h2 class="card-title">SOHAN</h2>
-                            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
-                                exercitationem, odio suscipit alias aperiam deleniti.</p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
-
-
-
-
         </div>
     </section>
     <!-- MY PROJECTS END -->
+    <div class="row">
+        <% blogs.forEach(blog=>{%>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12 d-block m-auto">
+                <div class="card">
+                    <img class="card-img img-fluid" src="https://i.postimg.cc/qR002B2p/bg.jpg" alt="">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <%= blog.title %>
+                        </h2>
+                        <p class="card-text">
+                            <%= blog.description %>
+                        </p>
+                        <p>
+                            AUTHOR:<%= blog.author %>
+                        </p>
+                        <p> <small class="text-muted">
+                                Created At: <%= blog.createdAt.toLocaleDateString() %>
+                            </small>
+                        </p>
+                        <a href="/blog/edit/<%=blog.id%>" class="btn btn-warning">Edit</a>
+                        <a href="/blog/delete/<%=blog.id%>" class="btn btn-danger">Delete</a>
+                        <button class="btn btn-info">Read Blog</button>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+    </div>
+
 
     <!-- OUR TEAM START -->
     <section class="ourteam">

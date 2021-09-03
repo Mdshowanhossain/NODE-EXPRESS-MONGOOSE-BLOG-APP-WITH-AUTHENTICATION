@@ -15,13 +15,10 @@ router.get('/home', (req, res) => {
     res.render('home')
 })
 
-
 router.post('/registration', async (req, res) => {
     try {
-
         const password = req.body.password;
         const cPassword = req.body.cPassword
-
         if (password === cPassword) {
             const userPostData = new userSchema({
                 firstname: req.body.firstname,
