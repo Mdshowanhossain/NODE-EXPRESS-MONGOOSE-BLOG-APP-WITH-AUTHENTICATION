@@ -1,7 +1,7 @@
 const express = require('express');
+const multer = require('multer');
 const BlogSchema = require('../models/blogSchema');
 require('../Database/blogConnection');
-
 const router = express.Router();
 
 
@@ -18,6 +18,24 @@ router.get('/show', (req, res) => {
 });
 
 // EJS RENDER END
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/uploads/images');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + file.originalname);
+    }
+})
+
+const upload = multer({
+    storage: storage,
+    limits: {
+        fieldSize: 1024 * 1024 * 3
+    }
+})
+
+
 
 
 router.get('/blog/:slug', async (req, res) => {
@@ -36,13 +54,16 @@ router.get('/blog/:slug', async (req, res) => {
     }
 })
 
-router.post('/post', async (req, res) => {
+router.post('/post', upload.single('image'), async (req, res) => {
+
+    console.log(req.file);
+
     try {
         const postBlogData = new BlogSchema({
             title: req.body.title,
             author: req.body.author,
             description: req.body.description,
-            image: req.body.image,
+            image: req.file.filename,
         })
         const postBlogSave = await postBlogData.save();
         res.status(201).redirect(`blog/${postBlogData.slug}`)
